@@ -4,20 +4,17 @@
 #include "bmp.h"
 
 void lsb_decode(char *file_name);
-void lsb_encode(char *file_name, char *text);
+void lsb_encode(char *file_name, char *text, char *to_file_name);
 int * _get_array_bit(int byte);
 int _get_last_bit(int byte);
 void _print_array_bit(int *array);
-void _write_file(bmp_file_info file_info);
+void _write_file(bmp_file_info file_info, char *file_name);
 
-void lsb_encode(char *file_name, char *text) {
+void lsb_encode(char *file_name, char *text, char *to_file_name) {
     bmp_file_info file_info = load_file(file_name);
     int len = strlen(text);
     int index = file_info.data_offset;
     int *array_bit;
-    for (int i = file_info.data_offset; i < file_info.data_offset + 17*8; i++) {
-        _print_array_bit(_get_array_bit(file_info.data[i]));
-    }
     for (int i = 0; i < len; i++) {
         array_bit = _get_array_bit(text[i]);
         for (int j = 0; j < 8; j++) {
@@ -25,11 +22,7 @@ void lsb_encode(char *file_name, char *text) {
             index++;
         }
     }
-    printf("Result:\n");
-    for (int i = file_info.data_offset; i < file_info.data_offset + 17*8; i++) {
-        _print_array_bit(_get_array_bit(file_info.data[i]));
-    }
-    _write_file(file_info);
+    _write_file(file_info, file_name);
 }
 
 int * _get_array_bit(int byte) {
@@ -51,11 +44,11 @@ int _get_last_bit(int byte) {
     return byte - (changed_last_bit >> 1 << 1);
 }
 
-void _write_file(bmp_file_info file_info) {
+void _write_file(bmp_file_info file_info, char *file_name) {
     FILE *fp;
-    fp = fopen("result.bmp", "wb+");
+    fp = fopen(file_name, "wb+");
     for (int i = 0; i < file_info.size; i++) {
-        fwrite(&file_info.data[i], sizeof(int), 1, fp);
+        fputc(file_info.data[i], fp);
     }
     fclose(fp);
 }
