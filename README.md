@@ -5,9 +5,8 @@ Mở terminal trỏ đến folder chứa code rồi chạy câu lệnh sau:
 ```
 ./compile_script.sh
 ```
-### Bước 2:**
+### Bước 2:
 **Ẩn tin**
-
 Để ẩn tin vào ảnh chạy:
 ```
 ./program --encode <anh-muon-an-tin-vao> <noi-dung-can-an> <anh-sau-khi-an-tin>
