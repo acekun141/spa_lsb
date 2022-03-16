@@ -1,5 +1,4 @@
 # spa_lsb
-# Cách chạy
 ## MacOS/Ubuntu
 ### Bước 1:
 Mở terminal trỏ đến folder chứa code rồi chạy câu lệnh sau:
@@ -8,6 +7,7 @@ Mở terminal trỏ đến folder chứa code rồi chạy câu lệnh sau:
 ```
 ### Bước 2:**
 **Ẩn tin**
+
 Để ẩn tin vào ảnh chạy:
 ```
 ./program --encode <anh-muon-an-tin-vao> <noi-dung-can-an> <anh-sau-khi-an-tin>
