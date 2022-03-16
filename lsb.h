@@ -1,7 +1,7 @@
 #ifndef LSB_H
 #define LSB_H
 
-void lsb_decode(char *file_name);
+void lsb_decode(char *file_name, char *to_file_name);
 void lsb_encode(char *file_name, char *text, char *to_file_name);
 int * _get_array_bit(int byte);
 int _get_last_bit(int byte);
