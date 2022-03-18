@@ -24,6 +24,14 @@ Mở terminal trỏ đến folder chứa code rồi chạy câu lệnh sau:
 ```
 ./program --decode result.bmp ketqua.txt 
 ```
+**Phân tích ảnh**
+```
+./program --calc <anh-can-phan-tich>
+```
+*VD:*
+```
+./program --calc result8bit.bmp
+```
 ## Window
 ### Bước 1:
 Mua macbook hoặc cài ubuntu (linux)

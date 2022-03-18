@@ -14,6 +14,7 @@ void _write_text_file(int *bytes, int bytes_len, char *file_name);
 
 void lsb_encode(char *file_name, char *text, char *to_file_name) {
     bmp_file_info file_info = load_file(file_name);
+    show_file_info(file_info);
     int len = strlen(text);
     int index = file_info.data_offset;
     int *array_bit;
@@ -29,6 +30,7 @@ void lsb_encode(char *file_name, char *text, char *to_file_name) {
 
 void lsb_decode(char *file_name, char *to_file_name) {
     bmp_file_info file_info = load_file(file_name);
+    show_file_info(file_info);
     int bit_len = file_info.size - file_info.data_offset;
     int bytes_len = bit_len / 8;
     int *bits = (int*)malloc(bit_len * sizeof(int));

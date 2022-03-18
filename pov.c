@@ -11,6 +11,7 @@ void calculate(char *file_name) {
     float Z[k+1];
     float D[k+1];
     float C = 0.0;
+    float p;
 
     // init value
     for (int i = 0; i <= k; i++) {
@@ -58,12 +59,9 @@ void calculate(char *file_name) {
         C += D[i];
     }
 
+    int n = (int) C / 2;
+    float alpha = (float) (k - 1) / 2;
+    p = 1 - grammainc(n, alpha);
 
-    for (int i = 0; i <= k; i++) {
-        // printf("X[%d] = %d\n", i, X[i]);
-        // printf("Y[%d] = %d\n", i, Y[i]);
-        printf("D[%d] = %.1f\n", i, D[i]);
-    }
-    printf("C = %.1f\n", C);
-
+    printf("C = %.1f\n,", C);
 }
